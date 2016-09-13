@@ -12,6 +12,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -34,11 +36,20 @@ public class RestServiceApplication {
 
     @GET
     @Produces({ MediaType.APPLICATION_JSON })
-    public Todo getXML() {
+    public List<Todo> getXML() {
         Todo todo = new Todo();
         todo.setSummary("This is my first todo");
         todo.setDescription("This is my first todo");
-        return todo;
+
+        Todo todo2 = new Todo();
+        todo2.setSummary("This is my first todo2");
+        todo2.setDescription("This is my first todo2");
+
+        List<Todo> lista = new ArrayList<Todo>();
+        lista.add(todo);
+        lista.add(todo2);
+
+        return lista;
     }
 
     @POST
